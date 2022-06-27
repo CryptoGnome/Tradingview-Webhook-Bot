@@ -39,8 +39,22 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 ***Anytime you need to make a change to the code or the API keys, you can push a new build heroku:***
 
 ``git add .``
+
 ``git commit -m "Update"``
+
 ``git push heroku master``
+
+# How to Send Alerts to your new webserver
+
+After starting you server, you shoudl see an address that will allow you to access it like below:
+
+[https://tv-trader-gnome.herokuapp.com/](https://tv-trader-gnome.herokuapp.com/webhook)
+
+#### You will want to add this when you create a new alert like show below:
+
+![image](https://user-images.githubusercontent.com/33667144/176002365-be54dfdc-690a-433d-9702-e8e9641a45b5.png)
+
+
 
 # TradingView Alerts Format 
 
