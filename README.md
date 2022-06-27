@@ -17,7 +17,7 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 
 3.) Edit config.json to add your own api keys & add a custom key to protect the server.
 
-``You need to creat new keys on Bybit & give them the correct acess to trade and see token balance```
+```You need to creat new keys on Bybit & give them the correct acess to trade and see token balance```
 	
 4.) Open a terminal in the cloned directory:
 
