@@ -54,6 +54,12 @@ After starting you server, you shoudl see an address that will allow you to acce
 
 ![image](https://user-images.githubusercontent.com/33667144/176002365-be54dfdc-690a-433d-9702-e8e9641a45b5.png)
 
+#### You will then want to create you syntax based on the format shownb below and place it in the alert msg field
+
+![image](https://user-images.githubusercontent.com/33667144/176003033-26794889-e041-4737-83f1-4f850335f280.png)
+
+
+_Now when your alerts fire off they should go strait to your server and get proccessed on the exchange almost instantly!_
 
 
 # TradingView Alerts Format 
