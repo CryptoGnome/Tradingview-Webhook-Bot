@@ -24,31 +24,20 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 4.) Open a terminal in the cloned directory:
 
 
- 5.) Type the following lines into the terminal: 
+ 5.) Submit the following lines into the terminal and press ENTER after each one to procces the code: 
  
 ``git init``
 
-``ENTER``
-
 ``heroku login``
-
-``ENTER``
 
 ``heroku create --region eu tv-trader-yourservernamehere``
 
-``ENTER``
-
 ``git add .``
-
-``ENTER``
 
 ``git commit -m "Initial Commit"``
 
-``ENTER``
-
 ``git push heroku master``
 
-``ENTER``
 
 ***Anytime you need to make a change to the code or the API keys, you can push a new build heroku:***
 
