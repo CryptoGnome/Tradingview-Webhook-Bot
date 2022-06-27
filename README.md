@@ -1,5 +1,9 @@
 This is a tradingview webhook  designed to be free & open source.  This bot is written using Python & Flask and is designed to run a free heroku server. It will allow you to create custom alerts in tradingview and send them to your own private webhook server that can place trades on your account via the api.
 
+#### Support can be requested in our Discord:
+
+https://discord.gg/Qb9unmxD6D
+
 #### Current Exchanges 
 - [Bybit](https://partner.bybit.com/b/webhookbot)
 - More will be done on request or can be added by submitting a pull request.
