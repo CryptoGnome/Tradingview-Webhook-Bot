@@ -25,8 +25,13 @@ https://discord.gg/Qb9unmxD6D
 	
 4.) Open a terminal in the cloned directory:
 
+5.) Install Heroku CLI so you can work connect you your webserver.
 
- 5.) Submit the following lines into the terminal and press ENTER after each one to procces the code: 
+https://cli-assets.heroku.com/heroku-x64.exe
+
+
+6.) Submit the following lines into the terminal and press ENTER after each one to procces the code: 
+ 
  
 ``git init``
 
