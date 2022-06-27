@@ -1,4 +1,3 @@
-## About
 This is a tradingview webhook  designed to be free & open source.  This bot is written using Python & Flask and is designed to run a free heroku server. It will allow you to create custom alerts in tradingview and send them to your own private webhook server that can place trades on your account via the api.
 
 #### Current Exchanges 
@@ -17,6 +16,8 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 2.) [Create Free Heroku Account](https://www.heroku.com/)
 
 3.) Edit config.json to add your own api keys & add a custom key to protect the server.
+
+``You need to creat new keys on Bybit & give them the correct acess to trade and see token balance```
 	
 4.) Open a terminal in the cloned directory:
 
@@ -36,7 +37,7 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 ``git push heroku master``
 
 
-***Anytime you need to make a change to the code or the API keys, you can push a new build heroku:***
+***Anytime you need to make a change to the code or the API keys, you can push a new build to Heroku:***
 
 ``git add .``
 
@@ -44,7 +45,7 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 
 ``git push heroku master``
 
-# How to Send Alerts to your new webserver
+# How to send alerts from TradingView to your new Webserver
 
 After starting you server, you shoudl see an address that will allow you to access it like below:
 
