@@ -1,0 +1,11 @@
+{
+   "KEY": 12345,
+   "EXCHANGES": {
+        "BYBIT": {
+             "API_KEY": "api-key-goes-here",
+             "API_SECRET": "api-secret-goes-here",
+             "ENABLED": true
+        }
+   }
+
+}
