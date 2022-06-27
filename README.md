@@ -3,10 +3,6 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 
 #### Current Exchanges 
 - [Bybit](https://partner.bybit.com/b/webhookbot)
-- BinanceFutures(Soon)
-- Binance US(Soon)
-- FTX(Soon)
-- FTX US(Soon)
 - More will be done on request or can be added by submitting a pull request.
 
 ***Help keep this tool free by creating a new account using our referral below:***
