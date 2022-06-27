@@ -6,6 +6,7 @@ This is a tradingview webhook  designed to be free & open source.  This bot is w
 - More will be done on request or can be added by submitting a pull request.
 
 ***Help keep this tool free by creating a new account using our referral below:***
+
 [Create Bybit Account](https://partner.bybit.com/b/webhookbot)
 
 
