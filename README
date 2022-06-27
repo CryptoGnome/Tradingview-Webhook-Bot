@@ -1,6 +1,6 @@
 INFO
 
-Help keep this tool free by creating a new account using our refferel links:
+#Help keep this tool free by creating a new account using our refferel links:
 https://partner.bybit.com/b/webhookbot
 
 
@@ -38,6 +38,7 @@ https://www.heroku.com/
 
 
 # TradingView Alerts Format
+```
 {
     "key": "678777",
     "exchange": "bybit",
@@ -52,7 +53,7 @@ https://www.heroku.com/
     "take_profit_percent": "1",
     "stop_loss_percent": "0.5"
 }
-
+```
 
 //key is the unique id of the alert to protect your server, use a unique key and match it in you config.json file
 //exhanges: bybit, more coming soon.
