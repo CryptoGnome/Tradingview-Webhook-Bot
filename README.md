@@ -67,7 +67,7 @@ https://cli-assets.heroku.com/heroku-x64.exe
 
 After starting you server, you shoudl see an address that will allow you to access it like below:
 
-[https://tv-trader-gnome.herokuapp.com/](https://tv-trader-gnome.herokuapp.com/webhook)
+[https://tv-trader-gnome.herokuapp.com/webhook](https://tv-trader-gnome.herokuapp.com/webhook)
 
 #### You will want to add this when you create a new alert like show below:
 
@@ -106,15 +106,15 @@ _Now when your alerts fire off they should go strait to your server and get proc
 | Constant |Settings Keys  |
 |--|--|
 |key| unique key that protects your webhook server|
-|exchange  | bybit, more coming soon. |
-|symbol  | Exchange Specific ** See Below for more |
-|side	|Buy or Sell		|
+|exchange | bybit, binacne-futures |
+|symbol | Exchange Specific ** See Below for more |
+|side|Buy or Sell		|
 |type | Market or Limit		|
-|order_mode	 | Both, Profit, Stop 		|
-|qty	 | amount of base currency to buy 		|
-|price	 |  ticker in quote currency		|
-|close_position	 | True or False 		|
-|cancel_orders	 |True or False 		|
+|order_mode| Both(Stop Loss & Take Profit Orders Used), Profit ( Omly Take Profit Orders), Stop (Only Stop Loss orders)|
+|qty| amount of base currency to buy 		|
+|price|  ticker in quote currency		|
+|close_position| True or False 		|
+|cancel_orders|True or False 		|
 |take_profit_percent| any float	 (0.5)	|
 |stop_loss_Percent	 |and float (0.5)		|
 
