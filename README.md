@@ -13,6 +13,7 @@ https://discord.gg/Qb9unmxD6D
 
 ***Help keep this tool free by creating a new account using our referral links below:***
 -------------------
+[Tradingview](https://www.tradingview.com/?offer_id=10&aff_id=9584)
 
 [Create Bybit Account](https://partner.bybit.com/b/webhookbot)
 
