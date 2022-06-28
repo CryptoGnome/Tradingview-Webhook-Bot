@@ -105,9 +105,9 @@ _Now when your alerts fire off they should go strait to your server and get proc
 ---
 | Constant |Settings Keys  |
 |--|--|
-|key| unique key that protects your webhook server
+|key| unique key that protects your webhook server|
 |exchange  | bybit, more coming soon. |
-|symbol  | "BTCUSD" for Inverse Pairs && "BTCUSDT" for USDT Perpetual Pairs |
+|symbol  | Exchange Specific ** See Below for more |
 |side	|Buy or Sell		|
 |type | Market or Limit		|
 |order_mode	 | Both, Profit, Stop 		|
@@ -119,4 +119,9 @@ _Now when your alerts fire off they should go strait to your server and get proc
 |stop_loss_Percent	 |and float (0.5)		|
 
 
-
+#### ** SYMBOLS
+| EXCHANGE | SYMBOL EXAMPLE |
+|--|--|
+|BYBIT INVERSE| BTCUSD|
+|BYBIT PERP | BTCUSDT|
+|Binance Futures | BTC/USDT|
