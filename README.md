@@ -1,3 +1,6 @@
+
+![Gnome-YT](https://user-images.githubusercontent.com/33667144/176252098-b38ed127-2c3e-41c4-9f4f-d3187da37368.jpg)
+
 This is a tradingview webhook  designed to be free & open source.  This bot is written using Python & Flask and is designed to run a free heroku server. It will allow you to create custom alerts in tradingview and send them to your own private webhook server that can place trades on your account via the api.
 
 #### Support can be requested in our Discord:
@@ -19,8 +22,15 @@ https://discord.gg/Qb9unmxD6D
 
 [Create Binance Futures Account](https://www.binance.com/en/register?ref=LMFD8MJ5)
 
+<br>
+<br>
 
 
+#### Video Tutorial:
+https://youtu.be/VX68RrMvM5Q
+
+
+<br>
 <br>
 
 # How to Webhook Server on Heroku
