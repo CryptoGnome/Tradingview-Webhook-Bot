@@ -2,6 +2,9 @@ import json
 from flask import Flask, render_template, request, jsonify
 from pybit import HTTP
 import time
+import ccxt
+from binanceFutures import Bot
+
 
 app = Flask(__name__)
 
@@ -18,13 +21,35 @@ with open('config.json') as config_file:
 
 use_bybit = False
 if 'BYBIT' in config['EXCHANGES']:
-    print("Bybit is enabled!")
-    use_bybit = True
+    if config['EXCHANGES']['BYBIT']['ENABLED']:
+        print("Bybit is enabled!")
+        use_bybit = True
+
     session = HTTP(
         endpoint='https://api.bybit.com',
         api_key=config['EXCHANGES']['BYBIT']['API_KEY'],
         api_secret=config['EXCHANGES']['BYBIT']['API_SECRET']
     )
+
+use_binance_futures = False
+if 'BINANCE-FUTURES' in config['EXCHANGES']:
+    if config['EXCHANGES']['BINANCE-FUTURES']['ENABLED']:
+        print("Binance is enabled!")
+        use_binance_futures = True
+
+        exchange = ccxt.binance({
+        'apiKey': config['EXCHANGES']['BINANCE-FUTURES']['API_KEY'],
+        'secret': config['EXCHANGES']['BINANCE-FUTURES']['API_SECRET'],
+        'options': {
+            'defaultType': 'future',
+            },
+        'urls': {
+            'api': {
+                'public': 'https://testnet.binancefuture.com/fapi/v1',
+                'private': 'https://testnet.binancefuture.com/fapi/v1',
+            }, }
+        })
+        exchange.set_sandbox_mode(True)
 
 
 @app.route('/')
@@ -32,13 +57,14 @@ def index():
     return {'message': 'Server is running!'}
 
 
+
+
 @app.route('/webhook', methods=['POST'])
 def webhook():
     print("Hook Received!")
-    #data = request.form.to_dict()
+    #data = request.form.to_dict()  ##This is for private testing locally
     data = json.loads(request.data)
     print(data)
-
 
     if int(data['key']) != config['KEY']:
         print("Invalid Key, Please Try Again!")
@@ -47,11 +73,13 @@ def webhook():
             "message": "Invalid Key, Please Try Again!"
         }
 
-    # code to place orders here
+    ##############################################################################
+    #             Bybit ## MOVE THIS CODE TO NEW FILE
+    ##############################################################################
     if data['exchange'] == 'bybit':
 
         if use_bybit:
-            if data['close_position'] == True:
+            if data['close_position'] == 'True':
                 print("Closing Position")
                 session.close_position(symbol=data['symbol'])
             else:
@@ -85,7 +113,7 @@ def webhook():
                                                    qty=data['qty'], time_in_force="GoodTillCancel", reduce_only=False,
                                                    close_on_trigger=False, price=price, take_profit=take_profit_price, stop_loss=stop_loss_price)
 
-                    if data['order_mode'] == 'Profit':
+                    elif data['order_mode'] == 'Profit':
                         take_profit_percent = float(data['take_profit_percent'])/100
                         current_price = session.latest_information_for_symbol(symbol=data['symbol'])['result'][0]['last_price']
                         if data['side'] == 'Buy':
@@ -97,7 +125,7 @@ def webhook():
                         session.place_active_order(symbol=data['symbol'], order_type=data['type'], side=data['side'],
                                                    qty=data['qty'], time_in_force="GoodTillCancel", reduce_only=False,
                                                    close_on_trigger=False, price=price, take_profit=take_profit_price)
-                    if data['order_mode'] == 'Stop':
+                    elif data['order_mode'] == 'Stop':
                         stop_loss_percent = float(data['stop_loss_percent'])/100
                         current_price = session.latest_information_for_symbol(symbol=data['symbol'])['result'][0]['last_price']
                         if data['side'] == 'Buy':
@@ -118,14 +146,21 @@ def webhook():
                                                    close_on_trigger=False, price=price)
 
 
-
         return {
             "status": "success",
             "message": "Bybit Webhook Received!"
         }
-
-
-
+    ##############################################################################
+    #             Binance Futures
+    ##############################################################################
+    if data['exchange'] == 'binance-futures':
+        if use_binance_futures:
+            bot = Bot()
+            bot.run(data)
+            return {
+                "status": "success",
+                "message": "Binance Futures Webhook Received!"
+            }
 
 
 
@@ -136,11 +171,6 @@ def webhook():
             "status": "error",
             "message": "Invalid Exchange, Please Try Again!"
         }
-
-
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=False)
