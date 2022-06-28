@@ -8,7 +8,7 @@ with open('config.json') as config_file:
     config = json.load(config_file)
 
 
-if config['testnet']:
+if config['EXCHANGES']['BINANCE-FUTURES']['TESTNET']:
     exchange = ccxt.binance({
         'apiKey': config['EXCHANGES']['BINANCE-FUTURES']['API_KEY'],
         'secret': config['EXCHANGES']['BINANCE-FUTURES']['API_SECRET'],
