@@ -6,12 +6,21 @@ https://discord.gg/Qb9unmxD6D
 
 #### Current Exchanges 
 - [Bybit](https://partner.bybit.com/b/webhookbot)
+- [Binance Futures](https://www.binance.com/en/register?ref=LMFD8MJ5)
 - More will be done on request or can be added by submitting a pull request.
 
+<br>
+
 ***Help keep this tool free by creating a new account using our referral below:***
+-------------------
 
 [Create Bybit Account](https://partner.bybit.com/b/webhookbot)
 
+[Create Binance Futures Account](https://www.binance.com/en/register?ref=LMFD8MJ5)
+
+
+
+<br>
 
 # How to Webhook Server on Heroku
 
