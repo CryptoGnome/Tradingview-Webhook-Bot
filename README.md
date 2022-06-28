@@ -11,7 +11,7 @@ https://discord.gg/Qb9unmxD6D
 
 <br>
 
-***Help keep this tool free by creating a new account using our referral below:***
+***Help keep this tool free by creating a new account using our referral links below:***
 -------------------
 
 [Create Bybit Account](https://partner.bybit.com/b/webhookbot)
