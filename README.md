@@ -57,7 +57,7 @@ https://cli-assets.heroku.com/heroku-x64.exe
 
 ``heroku login``
 
-``heroku create --region eu tv-trader-yourservernamehere``
+``heroku create --region eu tv-trader-yourseddrvernamehere``
 
 ``git add .``
 
