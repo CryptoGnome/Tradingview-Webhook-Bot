@@ -1,4 +1,4 @@
 pybit @ git+https://github.com/CryptoGnome/pybit-gnome.git@e86059a8a7a36be6b49f173f44affbb515603337
 flask
 gunicorn
-ccxt
+ccxt==2.2.37
