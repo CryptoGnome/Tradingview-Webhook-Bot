@@ -37,7 +37,9 @@ https://youtu.be/VX68RrMvM5Q
 
 1.) Clone Project to Desktop
 
-2.) [Create Free Heroku Account](https://www.heroku.com/)
+2.) [Create a Heroku Account](https://www.heroku.com/)
+
+*Heroku was free, now costs only $7 but is worth it... you are investing you money here and you want to do it right.*
 
 3.) Edit config.json to add your own api keys & add a custom key to protect the server.
 
