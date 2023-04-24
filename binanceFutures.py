@@ -7,13 +7,6 @@ import string
 with open('config.json') as config_file:
     config = json.load(config_file)
 
-def check_api_keys_valid(exchange):
-    try:
-        balance = exchange.fetch_balance()
-        return True
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        return False
 
 if config['EXCHANGES']['BINANCE-FUTURES']['TESTNET']:
     exchange = ccxt.binance({
@@ -42,12 +35,6 @@ else:
                 'private': 'https://fapi.binance.com/fapi/v1',
             }, }
     })
-
-if check_api_keys_valid(exchange):
-    print("API keys are valid.")
-else:
-    print("API keys are not valid.")
-    exit()
 
 class Bot:
 

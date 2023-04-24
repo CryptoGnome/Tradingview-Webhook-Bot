@@ -5,13 +5,27 @@ import time
 import ccxt
 from binanceFutures import Bot
 
+def validate_bybit_api_key(session):
+    try:
+        result = session.get_api_key_info()
+        return True
+    except Exception as e:
+        print("Bybit API key validation failed:", str(e))
+        return False
+
+def validate_binance_api_key(exchange):
+    try:
+        result = exchange.fetch_balance()
+        return True
+    except Exception as e:
+        print("Binance API key validation failed:", str(e))
+        return False
 
 app = Flask(__name__)
 
 # load config.json
 with open('config.json') as config_file:
     config = json.load(config_file)
-
 
 ###############################################################################
 #
@@ -51,18 +65,25 @@ if 'BINANCE-FUTURES' in config['EXCHANGES']:
         })
         exchange.set_sandbox_mode(True)
 
+# Validate Bybit API key
+if use_bybit:
+    if not validate_bybit_api_key(session):
+        print("Invalid Bybit API key.")
+        use_bybit = False
+
+# Validate Binance Futures API key
+if use_binance_futures:
+    if not validate_binance_api_key(exchange):
+        print("Invalid Binance Futures API key.")
+        use_binance_futures = False
 
 @app.route('/')
 def index():
     return {'message': 'Server is running!'}
 
-
-
-
 @app.route('/webhook', methods=['POST'])
 def webhook():
     print("Hook Received!")
-    #data = request.form.to_dict()  ##This is for private testing locally
     data = json.loads(request.data)
     print(data)
 
@@ -74,7 +95,7 @@ def webhook():
         }
 
     ##############################################################################
-    #             Bybit ## MOVE THIS CODE TO NEW FILE
+    #             Bybit
     ##############################################################################
     if data['exchange'] == 'bybit':
 
@@ -104,7 +125,6 @@ def webhook():
                         elif data['side'] == 'Sell':
                             take_profit_price = round(float(current_price) - (float(current_price) * take_profit_percent), 2)
                             stop_loss_price = round(float(current_price) + (float(current_price) * stop_loss_percent), 2)
-
 
                         print("Take Profit Price: " + str(take_profit_price))
                         print("Stop Loss Price: " + str(stop_loss_price))
@@ -138,13 +158,10 @@ def webhook():
                                                    qty=data['qty'], time_in_force="GoodTillCancel", reduce_only=False,
                                                    close_on_trigger=False, price=price, stop_loss=stop_loss_price)
 
-
-
                     else:
                         session.place_active_order(symbol=data['symbol'], order_type=data['type'], side=data['side'],
                                                    qty=data['qty'], time_in_force="GoodTillCancel", reduce_only=False,
                                                    close_on_trigger=False, price=price)
-
 
         return {
             "status": "success",
@@ -153,25 +170,23 @@ def webhook():
     ##############################################################################
     #             Binance Futures
     ##############################################################################
-    if data['exchange'] == 'binance-futures':
-        if use_binance_futures:
-            bot = Bot()
-            bot.run(data)
+        if data['exchange'] == 'binance-futures':
+            if use_binance_futures:
+                bot = Bot()
+                bot.run(data)
+                return {
+                    "status": "success",
+                    "message": "Binance Futures Webhook Received!"
+                }
+
+        else:
+            print("Invalid Exchange, Please Try Again!")
             return {
-                "status": "success",
-                "message": "Binance Futures Webhook Received!"
+                "status": "error",
+                "message": "Invalid Exchange, Please Try Again!"
             }
-
-
-
-
-    else:
-        print("Invalid Exchange, Please Try Again!")
-        return {
-            "status": "error",
-            "message": "Invalid Exchange, Please Try Again!"
-        }
 
 if __name__ == '__main__':
     app.run(debug=False)
+
 
