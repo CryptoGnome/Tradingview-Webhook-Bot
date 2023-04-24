@@ -21,5 +21,6 @@ EXPOSE 5005
 ENV FLASK_APP=app.py
 
 # Run your application when the container launches
-CMD ["flask", "run", "--host=0.0.0.0", "--port=5005"]
+CMD ["gunicorn", "app:app", "-b", "0.0.0.0:5005"]
+
 
