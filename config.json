@@ -5,7 +5,7 @@
              "API_KEY": "api-key-goes-here",
              "API_SECRET": "api-secret-goes-here",
              "ENABLED": true,
-             "TESTNET": true
+             "TESTNET": false
         },
         "BINANCE-FUTURES": {
              "API_KEY": "api-key-goes-here",
