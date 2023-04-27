@@ -36,7 +36,6 @@ else:
             }, }
     })
 
-
 class Bot:
 
     def __int__(self):
