@@ -25,15 +25,25 @@ https://discord.gg/Qb9unmxD6D
 <br>
 <br>
 
+# How to Webhook Server on your local computer
 
-#### Video Tutorial:
-https://youtu.be/VX68RrMvM5Q
+1.) Open a terminal in the cloned directory:
+
+2.) pip install -r requirements.txt
+
+3.) python3 -m venv nameofyourchoice
+
+4.) source /home/.../Desktop/Tradingview-Webhook-Bot-main/nameofyourchoice/bin/activate
+
+5.) flask run
 
 
 <br>
 <br>
 
 # How to Webhook Server on Heroku
+## Video Tutorial:
+https://youtu.be/VX68RrMvM5Q
 
 1.) Clone Project to Desktop
 
