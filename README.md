@@ -27,15 +27,27 @@ https://discord.gg/Qb9unmxD6D
 
 # How to Webhook Server on your local computer
 
-1.) Open a terminal in the cloned directory:
+1.) Clone Project to Desktop and create a virtual environment.
 
-2.) pip install -r requirements.txt
+``pip install -r requirements.txt``
 
-3.) python3 -m venv nameofyourchoice
+``sudo python3 -m venv nameofyourchoice``
 
-4.) source /home/.../Desktop/Tradingview-Webhook-Bot-main/nameofyourchoice/bin/activate
+``source /home/.../Desktop/Tradingview-Webhook-Bot-main/nameofyourchoice/bin/activate``
 
-5.) flask run
+3.) Edit config.json to add your own api keys & add a custom key to protect the server.
+
+4.) Start the local server
+
+``flask run``
+
+5.) Install ngrok and create account to generate authtoken
+
+``snap install ngrok``
+
+``ngrok config add-authtoken hereplaceyourkey``
+
+``ngrok http 5000``
 
 
 <br>
@@ -88,7 +100,7 @@ https://cli-assets.heroku.com/heroku-x64.exe
 
 # How to send alerts from TradingView to your new Webserver
 
-After starting you server, you shoudl see an address that will allow you to access it like below:
+After starting your server, you should see an address that will allow you to access it like below:
 
 [https://tv-trader-gnome.herokuapp.com/webhook](https://tv-trader-gnome.herokuapp.com/webhook)
 
@@ -128,14 +140,14 @@ _Now when your alerts fire off they should go strait to your server and get proc
 ---
 | Constant |Settings Keys  |
 |--|--|
-|key| unique key that protects your webhook server|
-|exchange | bybit, binacne-futures |
+|key| Unique key that protects your webhook server|
+|exchange | bybit, binance-futures |
 |symbol | Exchange Specific ** See Below for more |
 |side|Buy or Sell		|
 |type | Market or Limit		|
-|order_mode| Both(Stop Loss & Take Profit Orders Used), Profit ( Omly Take Profit Orders), Stop (Only Stop Loss orders)|
-|qty| amount of base currency to buy 		|
-|price|  ticker in quote currency		|
+|order_mode| Both(Stop Loss & Take Profit Orders Used), Profit ( Only Take Profit Orders), Stop (Only Stop Loss orders)|
+|qty| Amount of base currency to buy 		|
+|price|  Ticker in quote currency		|
 |close_position| True or False 		|
 |cancel_orders|True or False 		|
 |take_profit_percent| any float	 (0.5)	|
@@ -147,4 +159,4 @@ _Now when your alerts fire off they should go strait to your server and get proc
 |--|--|
 |BYBIT INVERSE| BTCUSD|
 |BYBIT PERP | BTCUSDT|
-|Binance Futures | BTC/USDT|
+|Binance Futures | BTCUSDT|
