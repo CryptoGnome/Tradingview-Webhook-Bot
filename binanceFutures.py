@@ -8,10 +8,10 @@ with open('config.json') as config_file:
     config = json.load(config_file)
 
 
-if config['EXCHANGES']['BINANCE-FUTURES']['TESTNET']:
+if config['EXCHANGES']['binance-futures']['TESTNET']:
     exchange = ccxt.binance({
-        'apiKey': config['EXCHANGES']['BINANCE-FUTURES']['API_KEY'],
-        'secret': config['EXCHANGES']['BINANCE-FUTURES']['API_SECRET'],
+        'apiKey': config['EXCHANGES']['binance-futures']['API_KEY'],
+        'secret': config['EXCHANGES']['binance-futures']['API_SECRET'],
         'options': {
             'defaultType': 'future',
         },
@@ -24,8 +24,8 @@ if config['EXCHANGES']['BINANCE-FUTURES']['TESTNET']:
     exchange.set_sandbox_mode(True)
 else:
     exchange = ccxt.binance({
-        'apiKey': config['EXCHANGES']['BINANCE-FUTURES']['API_KEY'],
-        'secret': config['EXCHANGES']['BINANCE-FUTURES']['API_SECRET'],
+        'apiKey': config['EXCHANGES']['binance-futures']['API_KEY'],
+        'secret': config['EXCHANGES']['binance-futures']['API_SECRET'],
         'options': {
             'defaultType': 'future',
         },
